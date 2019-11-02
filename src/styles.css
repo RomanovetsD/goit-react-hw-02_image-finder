@@ -154,8 +154,9 @@ backdrop .fullscreen-button i {
 
 .loader {
   color: #26a65b;
-  size: 16px;
-  margin: 4px;
+  text-align: center;
+  font-size: 40px;
+  padding-top: 30%;
 }
 
 .button {
@@ -188,4 +189,11 @@ backdrop .fullscreen-button i {
   width: 100%;
   min-height: 320px;
   background-color: #fff;
+}
+
+.img {
+  display: block;
+  margin: 0 auto;
+  padding-top: 10px;
+  width: 100%;
 }

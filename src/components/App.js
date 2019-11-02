@@ -4,6 +4,7 @@ import * as imageAPI from '../services/image-api';
 import Loader from './Loader';
 import ErrorNotification from './ErrorNotification';
 import SearchForm from './SearchForm';
+import NotfoundImage from './NotfoundImage';
 
 class App extends Component {
   state = {
@@ -60,6 +61,7 @@ class App extends Component {
         <SearchForm onSearch={this.onSearch} />
         {error && <ErrorNotification message={error.message} />}
         {isLoading && <Loader />}
+        {images.length <= 0 && <NotfoundImage />}
         {images.length > 0 && <Galary images={images} />}
         {images.length > 0 && (
           <button type="button" className="button" onClick={this.fetchImage}>
