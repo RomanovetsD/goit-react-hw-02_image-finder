@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   onSearch = query => {
-    this.setState({ query, images: [], pageNumber: 1 });
+    this.setState({ query, images: [], pageNumber: 1, isLoading: true });
   };
 
   fetchImage = () => {
