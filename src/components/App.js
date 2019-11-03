@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import InfiniteScroll from 'react-infinite-scroller';
 import Galary from './Galary';
 import * as imageAPI from '../services/image-api';
 import Loader from './Loader';
@@ -16,7 +17,7 @@ class App extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    const query = this.state;
+    const { query } = this.state;
 
     if (prevState.query !== query) {
       this.fetchImage();
@@ -24,7 +25,6 @@ class App extends Component {
     if (prevState.query !== query) {
       this.GoToTop();
     }
-
     window.scrollTo({
       top: document.body.scrollHeight,
 
@@ -75,7 +75,9 @@ class App extends Component {
         {error && <ErrorNotification message={error.message} />}
         {isLoading && <Loader />}
         {images.length <= 0 && <NotfoundImage />}
-        {images.length > 0 && <Galary images={images} />}
+        <InfiniteScroll>
+          {images.length > 0 && <Galary images={images} />}
+        </InfiniteScroll>
         {images.length > 0 && (
           <button
             type="button"
