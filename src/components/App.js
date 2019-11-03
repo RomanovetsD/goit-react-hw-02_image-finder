@@ -16,9 +16,15 @@ class App extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.query !== this.state.query) {
+    const query = this.state;
+
+    if (prevState.query !== query) {
       this.fetchImage();
     }
+    if (prevState.query !== query) {
+      this.GoToTop();
+    }
+
     window.scrollTo({
       top: document.body.scrollHeight,
 
@@ -53,6 +59,13 @@ class App extends Component {
       });
   };
 
+  GoToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   render() {
     const { images, isLoading, error } = this.state;
 
@@ -64,8 +77,21 @@ class App extends Component {
         {images.length <= 0 && <NotfoundImage />}
         {images.length > 0 && <Galary images={images} />}
         {images.length > 0 && (
-          <button type="button" className="button" onClick={this.fetchImage}>
+          <button
+            type="button"
+            className="buttonLoadMore"
+            onClick={this.fetchImage}
+          >
             Load more
+          </button>
+        )}
+        {images.length > 0 && (
+          <button
+            type="button"
+            className="buttonGoToTop"
+            onClick={this.GoToTop}
+          >
+            Go to top
           </button>
         )}
       </div>

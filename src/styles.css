@@ -24,6 +24,8 @@ img {
 
 /* Стили компонента App */
 .app {
+  margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 24px;
@@ -159,11 +161,23 @@ backdrop .fullscreen-button i {
   padding-top: 30%;
 }
 
-.button {
-  display: block;
-  margin: auto;
+.buttonLoadMore {
+  margin-left: 40%;
+  font-weight: bold;
   color: #fff;
   background-color: #1cbfd4;
+  padding: 8px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font: inherit;
+  text-transform: uppercase;
+}
+
+.buttonGoToTop {
+  margin-left: 10vh;
+  font-weight: bold;
+  color: #fff;
+  background-color: #1dd41c;
   padding: 8px 24px;
   border-radius: 4px;
   cursor: pointer;
